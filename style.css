@@ -1,0 +1,28 @@
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.title{
+    display: flex;
+    font-weight: bolder;
+    font-size: larger;
+}
+
+.choices{
+    display: flex;
+    gap: 30px;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    width: 150px;
+    gap: 10px;
+    border-style: inset;
+    border-color: red;
+}
