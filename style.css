@@ -23,6 +23,19 @@ body{
     padding: 10px;
     width: 150px;
     gap: 10px;
+}
+
+#rock{
+    border-style: inset;
+    border-color: gray;
+}
+
+#paper{
+    border-style: inset;
+    border-color: blue;
+}
+
+#scissor{
     border-style: inset;
     border-color: red;
 }
