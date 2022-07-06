@@ -5,23 +5,15 @@ body{
     gap: 20px;
     padding: 10px;
     justify-content: center;
-}
-
-.header{
-    display: flex;
-    justify-content: right;
-    width:100vw;
-}
+    background-color: black;
+    color: white;
+} 
 
 .title{
     display: flex;
     font-weight: bolder;
-    font-size: larger;
+    font-size: 30px;
     justify-self: center;
-}
-
-.newGameBtn{
-
 }
 
 .choices{
@@ -37,31 +29,33 @@ body{
     width: 20vw;
     max-width: 200px;
     gap: 10px;
-    
+    border-style: inset;
+    border-color: blue;
+    background-color: white;
+    color: black;
 }
 
 .container:hover{
     cursor:pointer;
     transform: scale(1.1);
+    transition: 0.2s;
     box-shadow: 5px 5px 20px 5px;
 }
 
-#rock{
-    border-style: inset;
-    border-color: gray;
-}
-
-#paper{
-    border-style: inset;
-    border-color: blue;
-}
-
-#scissor{
-    border-style: inset;
-    border-color: red;
+.playerClicked{
+    background: linear-gradient(#3204fde6, #9907fae6);
 }
 
 .scoreboard{
     display: flex;
     flex-direction: column;
+}
+
+.computer{
+    border-color:red;
+}
+
+.compClicked{
+    transition: 0.2s;
+    background-color: red;
 }

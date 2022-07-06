@@ -5,32 +5,65 @@ const userBoard = document.querySelector('.user');
 const compBoard = document.querySelector('.comp');
 const result = document.querySelector('.result');
 const newGameBtn = document.querySelector('.newGameBtn');
+const playerContainer = document.querySelectorAll('.player');
+const badRock = document.querySelector('#badRock');
+const badPaper = document.querySelector('#badPaper');
+const badScissor = document.querySelector('#badScissor');
+
 let  stopGame = false;
+let compChoose;
+
+function removeTransition(e){
+    this.classList.remove('playerClicked');
+}
+
+function removeCompColor(e){
+    this.classList.remove('compClicked');
+}
+
+playerContainer.forEach(player => {
+    player.addEventListener('click', () =>{
+        player.classList.add('playerClicked');
+    });
+    player.addEventListener('transitionend', removeTransition);
+});
 
 function random(){
     let rand = Math.floor(Math.random()*3) + 1;
-    if(rand == 1)return "rock";
-    else if(rand == 2)return "paper";
-    return "scissor";
+    if(rand == 1){
+        badRock.classList.add('compClicked');
+        badRock.addEventListener('transitionend', removeCompColor);
+        return "rock";
+    }
+    else if(rand == 2){
+        badPaper.classList.add('compClicked');
+        badPaper.addEventListener('transitionend', removeCompColor);
+        return "paper";
+    }
+    else {
+        badScissor.classList.add('compClicked');
+        badScissor.addEventListener('transitionend', removeCompColor);
+        return "scissor";
+    }
 }
 
 function changeChoice(x){
     if(!stopGame){
         userChoose = x;
-        let compChoose = random();
+        compChoose = random();
         updateScore(userChoose, compChoose);
     }
 }
 
 function updateScore(user, comp){
-    if(user == comp)result.textContent = 'DRAW';
+    if(user == comp)result.textContent = 'Result: DRAW';
     else if(user == "rock" && comp == "paper" || user == "paper" && comp == "scissor" || user == "scissor" && comp == "rock"){
         compScore++;
-        result.textContent = 'LOSE';
+        result.textContent = 'Result: LOSE';
     }
     else {
         userScore++;
-        result.textContent = 'WIN';
+        result.textContent = 'Result: WIN';
     }
     userBoard.textContent = `You: ${userScore}`;
     compBoard.textContent = `Comp: ${compScore}`;
